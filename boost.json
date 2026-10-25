@@ -13,6 +13,15 @@
         "infer-conventions",
         "deploying-to-cloud",
         "laravel-best-practices",
-        "testing-best-practices"
+        "testing-best-practices",
+        "code-review",
+        "grill-me",
+        "jtb-best-practices",
+        "markdown-formatting",
+        "mermaid-diagram",
+        "nk-documentation-best-practices",
+        "nk-laravel-best-practices",
+        "nk-livewire-best-practices",
+        "skill-creation"
     ]
 }

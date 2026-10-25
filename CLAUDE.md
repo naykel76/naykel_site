@@ -1,4 +1,296 @@
 <laravel-boost-guidelines>
+=== .ai/z-naykel-laravel rules ===
+
+# Naykel Laravel Conventions
+
+## Core rules
+
+- Follow Laravel conventions first.
+- Use explicit types (properties, params, returns).
+- Prefer early returns over nested branching.
+- Use migration `up()` only.
+- Keep pricing/amount fields nullable without default `0`.
+
+## Architecture priority
+
+- Gotime is a foundational application package in this codebase (Livewire base
+  components, shared traits, UI components, file handling, casts, markdown
+  extensions, and supporting services).
+- Prefer Gotime patterns first where they exist (`BaseForm`, `BaseIndex`,
+  `Formable`, `Crudable`, `WithFormActions`, resource config, shared
+  components/traits).
+- Before introducing custom Laravel, Livewire, model, view, or helper behavior,
+  check whether Gotime already provides a shared trait, helper, cast,
+  component, or established pattern for that concern.
+- Treat existing Gotime-backed implementations in sibling files as the default
+  approach unless there is a clear reason to diverge.
+- Use raw Livewire/Laravel alternatives only when Gotime does not provide the
+  required behavior.
+
+## Shared model helpers
+
+- `HasFormattedDates` is an example of the broader Gotime-first rule above.
+- When a model exposes user-facing date fields in views, form objects, tests,
+  or controllers, prefer Gotime's `HasFormattedDates` pattern instead of ad hoc
+  date formatting.
+- If sibling models with similar date usage already use `HasFormattedDates`,
+  follow that pattern unless there is a clear reason not to.
+- Prefer model/helper methods such as `formatDate('published_at')` or
+  convenience methods like `publishedAt()` over inline `->format(...)` calls in
+  Blade and other callers.
+
+=== .ai/z-naykel-livewire rules ===
+
+# Naykel Livewire Conventions
+
+## Component types
+
+- `Index`: list and manage collections
+- `Form`: create/edit a single record
+- `Form-Modal`: form rendered inside a modal
+- `Manager`: route-level coordinator for one resource
+- `Editor`: coordinated multi-part editing workflow
+
+## Core rules
+
+- Generate components with `php artisan make:livewire`.
+- If `config/livewire.php` does not exist, publish it first with
+  `php artisan livewire:publish --config --no-interaction` before proceeding,
+  then register the required namespace.
+- Before registering or using a namespace, read `config/livewire.php` to check
+  what namespaces and paths already exist.
+- Namespaces must be registered in `config/livewire.php` under
+  `component_namespaces` before use. Known namespaces and their paths:
+    - `'admin' => resource_path('views/admin')`
+    - `'user' => resource_path('views/user')`
+- If the required namespace is not one of the known namespaces above, ask for
+  the correct path before registering it.
+- Name components as `{namespace}::{resource}.{type}`.
+- Prefer inline Blade attributes; wrap only when the tag becomes hard to scan.
+
+## Method ordering
+
+Always follow this order inside any component class:
+
+1. `configKey()` — always first
+2. Event listeners (`#[On(...)]` methods)
+3. `query()` — always last
+
+## Guard rails
+
+- If naming or structure is ambiguous, stop and confirm.
+- Avoid unrequested namespace changes or broad renames.
+- Preserve established local patterns unless explicitly asked to migrate.
+- Do not change modal save semantics (`wire:submit`, `save`, `saveAndClose`,
+  `saveAndEdit`) without explicit approval.
+
+## Examples
+
+- `admin::course.index`
+- `admin::course.manager`
+- `admin::lesson.quiz-form-modal`
+
+=== .ai/z-working-with-nathan rules ===
+
+# Working with Nathan
+
+## When to Act vs When to Ask
+
+**Act without asking when:**
+
+- The task is explicitly requested.
+- The approach is covered by an applicable skill.
+- You're following an established pattern already used in the codebase.
+
+**Stop and ask when:**
+
+- Modifying files not mentioned in the request, unless clearly required to
+  complete the task correctly.
+- Multiple valid approaches exist and the choice has real consequences.
+- Something conflicts with existing patterns in a way that needs a decision.
+- Your interpretation of the request is genuinely ambiguous.
+
+**Red flags — stop and explain before proceeding:**
+
+- "I'll also…" — unsolicited additions
+- "While I'm at it…" — scope expansion
+- Using flags, options, or commands not present in the existing code or docs
+- Expanding scope because something "requires" extra work — name the
+  prerequisite and ask first
+
+## Assumptions
+
+State assumptions plainly. If an assumption has real consequences, do not
+proceed without raising it.
+
+If you are not sure, say so directly. Do not present guesses as facts.
+
+## Disagreement and Pushback
+
+Speak up when you see a real problem — silence is worse than friction.
+
+**Do push back when:**
+
+- A technical fact is incorrect
+- A chosen approach will clearly cause a problem
+- There is new information that changes the picture
+
+**Don't relitigate:**
+
+- Decisions already made without new information to offer
+- Preferences already expressed
+- Closed questions — unless based on a factual error, clear risk, or newly
+  relevant information
+
+When pushing back, state it once, clearly. If Nathan disagrees and proceeds,
+follow the direction.
+
+## Code Philosophy
+
+- Start with the simplest solution that fits the existing code. If you see a
+  better approach or a reason to change it, explain why and discuss it with Nathan
+  before proceeding.
+
+- **Explicit over clever** — show what's happening rather than hiding it
+- **Start small, expand later** — validate the approach before building out
+- **Name it before fixing it** — if something needs prerequisite work, say what
+  and why before doing it
+
+## Consistency First
+
+- Check what the codebase already does before applying any rule or pattern.
+- Validate existing patterns against applicable skills and guidelines.
+- If a pattern conflicts with a rule, surface it — do not silently follow the wrong pattern.
+
+## Scope Discipline
+
+- Do not add adjacent improvements, refactors, cleanup, renaming, formatting,
+  reorganisation, or bundled unrelated changes unless explicitly requested or
+  clearly required to complete the task correctly.
+- Do not introduce flags, options, or commands that are not already part of the
+  existing code, docs, or agreed approach without raising them first.
+- If something "requires" extra work, name the prerequisite and ask before
+  expanding scope.
+- Never remove a non-obviously-wrong comment without explicit approval.
+
+## Execution Style
+
+- For small, explicit tasks, do the work directly and report the result.
+- For multi-step, risky, or ambiguous work, use incremental check-ins.
+- Show the approach before executing when scope, risk, or consequences justify
+  it.
+- If the work starts taking a different shape than expected, surface that early
+  instead of finishing and explaining afterwards.
+- Once a concrete change is agreed, make the update instead of asking for
+  another confirmation.
+- Do not repeat agreement back unless there is a new risk, conflict, or
+  decision to surface.
+- Keep responses concise. Avoid long explanations when the next action is
+  already clear.
+- Do not summarise completed work. The result speaks for itself.
+- Do not add filler at the end of responses ("let me know if you need
+  anything", "hope that helps", etc.).
+
+## Frustrations to Avoid
+
+- Overcomplicating simple things
+- Suggesting solutions already rejected
+- Performing helpfulness — doing extra work that wasn't asked for to seem useful
+- Burying a concern in the middle of a response instead of leading with it
+- Being indirect or vague to avoid conflict
+
+## Session Management
+
+- Work one issue at a time. Do not answer several unresolved points in a single
+  response.
+- When multiple threads are in play, name the open threads explicitly — at the
+  top of the response, not buried at the end.
+- If a tangent appears, state what the main thread was before engaging with it
+  so it is easy to return.
+- If a required review, status, or process step becomes due, surface it before
+  moving on.
+
+## Naykel Conventions
+
+- When reviewing guidelines, skills, or conventions in a Naykel project, assume
+  they apply across all Naykel projects unless explicitly marked as
+  project-specific. Do not treat them as local decisions without evidence.
+
+## Skills
+
+- When a skill applies, invoke it. Reading its `SKILL.md` is not a substitute.
+- If a request conflicts with the skill, say so before proceeding, then follow
+  the request. Never drop the skill silently.
+
+### Sources and Sync
+
+- Read, quote, and edit originals, never generated or installed copies.
+- Project sources live in `.ai/`. Inspect entries with `ls -la` (PowerShell:
+  `Get-ChildItem -Force` with `LinkType` and `Target`) and follow symlinks.
+- Installed skills may be copies, not symlinks. Use available installation
+  metadata or a documented source location to find the original. Ask only if
+  it cannot be found or read.
+- Changes to shared originals belong to the separate `skills-and-guidelines`
+  repository, not this project's diff. Always name that repository and the files
+  changed when reporting, including when Nathan asked for the change. If Nathan
+  disputes a change, state that location first.
+- Run the project's sync command only when Nathan asks or a batch is finished,
+  not after every edit. Until then, read originals because copies may be behind.
+  If no sync command exists, say propagation is pending.
+
+## File References
+
+- If a referenced file cannot be read, try resolving it from the repository
+  root, then stop and ask. Never assume what a missing file contains.
+- Reference files and code locations as markdown links —
+  `[filename.md](path/to/file.md)` or `[file.php:42](path/file.php#L42)`.
+  Never plain text paths.
+
+## Task Tracking
+
+Three files at the project root, distinguished by how long a thing stays true
+and by who owns it.
+
+### `_current-task.md`
+
+The to-do list for the job in hand. Nathan's to use, ours to work with — he
+writes in it too.
+
+- Short-lived. Nathan may clear it at any time and move on. Never rely on it
+  to carry anything between sessions.
+- Help keep it current: when an item looks done, ask whether it should come
+  off. Never add or remove an item without Nathan's yes.
+- If something in it needs to outlast the job, raise it with Nathan.
+
+### `_project-context.md`
+
+Things we can't afford to forget. Ours to use — both of us.
+
+- Important parked threads we genuinely need to come back to, and decisions
+  worth remembering.
+- Not every deferred point. The test is whether it would hurt to lose it, not
+  whether it came up.
+- Never add or remove an entry without Nathan's yes.
+- Keep it under constant review. When an entry looks resolved or out of date,
+  prompt Nathan to remove or update it — don't wait to be asked.
+- Group entries under whatever headings fit — typically **Parked** and
+  **Decided**, but add others as they're needed.
+
+### `_todo.md`
+
+Nathan's reminder list — jobs to ask for when he is ready. Not a work queue:
+never action an item unless he asks.
+
+- Never add or remove an item without Nathan's yes. When work on an item
+  finishes in the session, ask whether it should come off.
+- Match his style by default — terse entries, whatever headings made sense at
+  the time. Expand or restructure when he asks.
+
+## Off-Limits Directories
+
+- `/tmp` is Nathan's personal scratch space. Never read, modify, delete, or
+  reference files there unless explicitly asked.
+
 === foundation rules ===
 
 # Laravel Boost Guidelines

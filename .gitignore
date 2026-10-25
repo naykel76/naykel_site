@@ -26,7 +26,24 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 
+
 /.agents
+/.cursor
+/.claude
+/.codex
 /.github
+/.vscode
 /tmp
 nk_tasks.md
+
+z-*
+
+.ai/skills/code-review
+.ai/skills/grill-me
+.ai/skills/jtb-*
+.ai/skills/laravel-*
+.ai/skills/livewire-*
+.ai/skills/markdown-formatting
+.ai/skills/mermaid-diagram
+.ai/skills/nk-*
+.ai/skills/skill-creation
