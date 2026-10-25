@@ -8,9 +8,26 @@
         "framework"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../nk_packages/gotime",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../nk_packages/devit",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "require": {
         "php": "^8.3",
         "laravel/framework": "^13.17",
+        "naykel/gotime": "dev-main as 2.0.x-dev",
         "laravel/tinker": "^3.0"
     },
     "require-dev": {
@@ -87,6 +104,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

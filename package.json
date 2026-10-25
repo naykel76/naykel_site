@@ -4,16 +4,31 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "debug": "vite --debug",
+        "dev": "vite",
+        "log": "code storage/logs/laravel.log",
+        "nuke": "rm -rf node_modules vendor public/build",
+        "nuke:ps": "powershell -NoProfile -Command \"Remove-Item -Recurse -Force node_modules, vendor, public/build\""
     },
     "devDependencies": {
-        "@tailwindcss/vite": "^4.0.0",
+        "@erbelion/vite-plugin-laravel-purgecss": "^0.4.2",
+        "autoprefixer": "^10.4.21",
         "concurrently": "^10.0.3",
         "laravel-vite-plugin": "^3.1",
-        "tailwindcss": "^4.0.0",
+        "nk_jtb": "^0.22.0",
+        "postcss": "^8.5.6",
+        "sass": "^1.93.3",
         "vite": "^8.0.0"
     },
     "optionalDependencies": {
         "@laravel/multiplex": "^0.4.1"
+    },
+    "dependencies": {
+        "@alpinejs/collapse": "^3.15.4",
+        "@alpinejs/sort": "^3.15.4",
+        "filepond": "^4.32.10",
+        "filepond-plugin-file-validate-size": "^2.2.8",
+        "filepond-plugin-file-validate-type": "^1.2.9",
+        "filepond-plugin-image-preview": "^4.6.12"
     }
 }
