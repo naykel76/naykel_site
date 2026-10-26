@@ -1,0 +1,136 @@
+@use '../../node_modules/nk_jtb/src/maps_and_variables/base' as tokens;
+
+:root {
+    --site-space: 1rem;
+    --site-surface: #fff;
+    --site-border: #e2e8f0;
+    --site-muted: #64748b;
+    --site-drawer-width: 22rem;
+}
+
+.site-header {
+    border-block-end: 1px solid var(--site-border);
+
+    .navbar {
+        --navbar-bg: var(--site-surface);
+        --navbar-padding-y: var(--site-space);
+        --navbar-padding-x: 0;
+        color: tokens.$text-color;
+    }
+
+    .container {
+        gap: var(--site-space);
+    }
+}
+
+.site-brand {
+    color: tokens.$text-color;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+
+    span { color: tokens.$primary; }
+}
+
+.site-actions,
+.site-drawer-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--site-space);
+}
+
+.site-navigation {
+    margin-block: 0;
+
+    .dropdown { color: tokens.$text-color; }
+}
+
+.site-drawer {
+    margin: 0 0 0 auto;
+    inset-block: 0;
+    inset-inline: auto 0;
+    inline-size: min(var(--site-drawer-width), 100%);
+    max-inline-size: 100%;
+    block-size: 100dvh;
+    max-block-size: 100dvh;
+    padding: calc(var(--site-space) * 1.5);
+    border: 0;
+    background: var(--site-surface);
+    color: tokens.$text-color;
+    overflow-y: auto;
+
+    &::backdrop { background: rgb(0 0 0 / 45%); }
+}
+
+.site-drawer-heading { justify-content: space-between; }
+
+.site-drawer-navigation,
+.site-drawer-actions {
+    margin-block-start: calc(var(--site-space) * 2);
+}
+
+.site-account {
+    position: relative;
+
+    summary { cursor: pointer; }
+
+    > .bx {
+        position: absolute;
+        inset-inline-end: 0;
+        min-inline-size: 12rem;
+        z-index: 20;
+        background: var(--site-surface);
+    }
+}
+
+.site-intro {
+    padding-block: clamp(3rem, 8vw, 7rem);
+
+    h1 {
+        font-size: clamp(2.25rem, 5vw, 4rem);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+    }
+}
+
+.site-intro-copy {
+    max-inline-size: 38rem;
+    color: var(--site-muted);
+    font-size: 1.25rem;
+}
+
+.site-resources {
+    padding-block-end: calc(var(--site-space) * 4);
+
+    .bx { margin-block: 0; }
+}
+
+.site-documentation { overflow-wrap: anywhere; }
+
+.site-footer {
+    margin-block-start: auto;
+    border-block-start: 1px solid var(--site-border);
+    padding-block: calc(var(--site-space) * 1.5);
+    color: var(--site-muted);
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--site-space);
+    }
+}
+
+.site-skip {
+    position: absolute;
+    inset-inline-start: var(--site-space);
+    inset-block-start: var(--site-space);
+    transform: translateY(-200%);
+    z-index: 30;
+    padding: var(--site-space);
+    background: var(--site-surface);
+
+    &:focus { transform: translateY(0); }
+}

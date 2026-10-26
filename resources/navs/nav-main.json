@@ -5,6 +5,27 @@
                 "name": "Home",
                 "route_name": "home",
                 "exclude_route": true
+            },
+            {
+                "name": "Documentation",
+                "exclude_route": true,
+                "children": [
+                    {
+                        "name": "JTB",
+                        "url": "/#jtb",
+                        "exclude_route": true
+                    },
+                    {
+                        "name": "Gotime installation",
+                        "route_name": "docs.gotime.installation",
+                        "layout": "components.layouts.documentation"
+                    },
+                    {
+                        "name": "Creating a Naykel application",
+                        "route_name": "docs.creating-a-naykel-application",
+                        "layout": "components.layouts.documentation"
+                    }
+                ]
             }
         ]
     }
