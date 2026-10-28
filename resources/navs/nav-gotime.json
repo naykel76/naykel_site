@@ -1,0 +1,35 @@
+{
+    "Getting Started": {
+        "links": [
+            {
+                "name": "Installation",
+                "route_name": "docs.gotime.installation",
+                "icon": "book-open"
+            }
+        ]
+    },
+    "Core Concepts": {
+        "links": [
+            {
+                "name": "Component Architecture",
+                "route_name": "docs.gotime.core-concepts.component-architecture"
+            },
+            {
+                "name": "Nav JSON Configuration",
+                "route_name": "docs.gotime.core-concepts.nav-json-configuration"
+            },
+            {
+                "name": "Nav Component (wip)",
+                "route_name": "docs.gotime.core-concepts.nav"
+            }
+        ]
+    },
+    "Guides": {
+        "links": [
+            {
+                "name": "Nav Design Guide (wip)",
+                "route_name": "docs.gotime.guides.nav-design-guide"
+            }
+        ]
+    }
+}

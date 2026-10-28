@@ -1,0 +1,83 @@
+{
+    "main": {
+        "links": [
+            {
+                "name": "Admin",
+                "url": "#",
+                "icon": "key",
+                "permissions": "access-admin"
+            },
+            {
+                "name": "Dashboard",
+                "url": "#",
+                "icon": "home"
+            },
+            {
+                "name": "Courses",
+                "url": "#",
+                "icon": "academic-cap",
+                "exclude_child_routes": true,
+                "children": [
+                    {
+                        "name": "All Courses",
+                        "url": "#"
+                    },
+                    {
+                        "name": "Active",
+                        "url": "#"
+                    },
+                    {
+                        "name": "Pending",
+                        "url": "#"
+                    },
+                    {
+                        "name": "Expired",
+                        "url": "#"
+                    }
+                ]
+            },
+            {
+                "name": "Webinars",
+                "url": "#",
+                "icon": "film",
+                "permissions": [
+                    "access-admin",
+                    "view-webinars"
+                ]
+            },
+            {
+                "name": "Settings",
+                "icon": "cog-6-tooth",
+                "url": "#",
+                "children": [
+                    {
+                        "name": "Profile",
+                        "url": "#"
+                    },
+                    {
+                        "name": "Account",
+                        "url": "#"
+                    },
+                    {
+                        "name": "Notifications",
+                        "url": ""
+                    }
+                ]
+            }
+        ]
+    },
+    "admin": {
+        "links": [
+            {
+                "name": "Users",
+                "url": "#",
+                "icon": "users"
+            },
+            {
+                "name": "Posts",
+                "url": "#",
+                "icon": "document-text"
+            }
+        ]
+    }
+}

@@ -15,7 +15,7 @@
         "autoprefixer": "^10.4.21",
         "concurrently": "^10.0.3",
         "laravel-vite-plugin": "^3.1",
-        "nk_jtb": "^0.22.0",
+        "nk_jtb": "file:/~/sites/nk_jtb",
         "postcss": "^8.5.6",
         "sass": "^1.93.3",
         "vite": "^8.0.0"
