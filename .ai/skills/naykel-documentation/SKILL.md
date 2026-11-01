@@ -21,6 +21,11 @@ navigation only — the rule files take precedence.
 
 ### Package Docs → `rules/package-docs.md`
 
-- Gotime/Authit/package documentation
-- Local doc placement rules
+- Package overviews and documentation placement
 - Package doc structure
+
+### Component Docs → `rules/component-docs.md`
+
+- Progressive usage examples and reference structure
+- Copyable code versus preview data
+- Custom layouts, base components and walkthrough guides

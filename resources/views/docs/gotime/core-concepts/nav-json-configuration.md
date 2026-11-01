@@ -42,6 +42,11 @@ These properties are understood by both systems:
 | `url`         | Local path, or an external URL for menu rendering                        |
 | `children`    | Nested items                                                            |
 
+When Nav uses `url`, it keeps the value unchanged. Use `/about` for a link from
+the site root, `about` for a link relative to the current page, or `#section`
+for a link within the current page. Dots in URLs are preserved; dot notation
+for route names belongs in `route_name`.
+
 For external menu links, set `exclude_route: true` when the file is also read by
 `RouteBuilder`. It generates local routes, not routes to external destinations.
 When both `route_name` and `url` are supplied, `RouteBuilder` derives its local

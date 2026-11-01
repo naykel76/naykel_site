@@ -7,37 +7,20 @@
                 "exclude_route": true
             },
             {
+                "name": "Gotime",
+                "route_name": "docs.gotime.installation"
+            },
+            {
+                "name": "JTB",
+                "route_name": "docs.jtb.installation"
+            },
+            {
                 "name": "Documentation",
                 "exclude_route": true,
                 "children": [
                     {
-                        "name": "JTB",
-                        "url": "/#jtb",
-                        "exclude_route": true
-                    },
-                    {
-                        "name": "Gotime installation",
-                        "route_name": "docs.gotime.installation"
-                    },
-                    {
                         "name": "Creating a Naykel application",
                         "route_name": "docs.creating-a-naykel-application"
-                    },
-                    {
-                        "name": "Component architecture",
-                        "route_name": "docs.gotime.core-concepts.component-architecture"
-                    },
-                    {
-                        "name": "Nav component (wip)",
-                        "route_name": "docs.gotime.core-concepts.nav"
-                    },
-                    {
-                        "name": "Nav JSON configuration",
-                        "route_name": "docs.gotime.core-concepts.nav-json-configuration"
-                    },
-                    {
-                        "name": "Nav design guide (wip)",
-                        "route_name": "docs.gotime.guides.nav-design-guide"
                     }
                 ]
             }

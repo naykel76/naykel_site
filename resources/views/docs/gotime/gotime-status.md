@@ -42,6 +42,6 @@ Tracks each Gotime doc in this application. A doc is confirmed when all its
 | ----------------------------------------- | ------ | ------------------------------------------------------------ |
 | `installation.md`                          |        | Carried over with the install; not reviewed here             |
 | `core-concepts/component-architecture.md`  | ✅     | Pattern, example, file structure and registration confirmed against the button source |
-| [Nav component](core-concepts/nav.md) | ✅ | Documentation confirmed against source; all four `nav-demo` examples render. Navbar appearance, interaction and keyboard behaviour remain unverified. |
+| [Nav component](components/nav.md) | ✅ | Documentation confirmed, including dropdown navbar composition, publishing and local layout selection. |
 | [Nav JSON configuration](core-concepts/nav-json-configuration.md) | ✅     | Properties, nesting and import behaviour confirmed against NavDTO, NavItemDTO, RouteDTO, RouteBuilder and the nav templates. |
-| [Nav design guide](guides/nav-design-guide.md) | review | Layout claims corrected; missing example views identified and runnable previews removed. Examples require setup and verification. |
+| [Nav design guide](guides/nav-design-guide.md) | ✅ | Custom layout walkthrough, child menus, dropdown navbar composition, icons and permissions confirmed. |

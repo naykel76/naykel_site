@@ -17,17 +17,21 @@
             {
                 "name": "Nav JSON Configuration",
                 "route_name": "docs.gotime.core-concepts.nav-json-configuration"
-            },
+            }
+        ]
+    },
+    "Components": {
+        "links": [
             {
-                "name": "Nav Component (wip)",
-                "route_name": "docs.gotime.core-concepts.nav"
+                "name": "Nav",
+                "route_name": "docs.gotime.components.nav"
             }
         ]
     },
     "Guides": {
         "links": [
             {
-                "name": "Nav Design Guide (wip)",
+                "name": "Nav Design Guide",
                 "route_name": "docs.gotime.guides.nav-design-guide"
             }
         ]

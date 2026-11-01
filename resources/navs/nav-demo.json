@@ -1,5 +1,5 @@
 {
-    "main": {
+    "nested": {
         "links": [
             {
                 "name": "Admin",
@@ -66,17 +66,22 @@
             }
         ]
     },
-    "admin": {
+    "main": {
         "links": [
             {
-                "name": "Users",
+                "name": "Home",
                 "url": "#",
-                "icon": "users"
+                "icon": "home"
             },
             {
-                "name": "Posts",
+                "name": "About",
                 "url": "#",
-                "icon": "document-text"
+                "icon": "information-circle"
+            },
+            {
+                "name": "Contact",
+                "url": "#",
+                "icon": "envelope"
             }
         ]
     }

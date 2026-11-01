@@ -16,6 +16,7 @@ Route::get('/', function () {
 
 (new RouteBuilder('nav-main'))->create();
 (new RouteBuilder('nav-gotime', 'components.layouts.docs'))->create();
+(new RouteBuilder('nav-jtb', 'components.layouts.docs'))->create();
 
 /*
 |--------------------------------------------------------------------------
